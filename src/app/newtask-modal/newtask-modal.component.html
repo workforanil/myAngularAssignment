@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Create a new Task</h1>
+<div mat-dialog-content>
+    <form id="myForm" action="" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+        <div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Task Title</mat-label>
+                <input matInput placeholder="Ex. My Todo" value="MyTask" formControlName="newTask">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Task Description</mat-label>
+                <textarea matInput placeholder="It describes my task" formControlName="taskDescription"></textarea>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Choose Priority</mat-label>
+                <mat-select [(value)]="selected" formControlName="taskPriority">
+                    <mat-option value="1">High</mat-option>
+                    <mat-option value="2">Medium</mat-option>
+                    <mat-option value="3">Low</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close type="submit" form="myForm">Create</button>
+</div>

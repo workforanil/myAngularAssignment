@@ -1,0 +1,59 @@
+.taskShowcase{
+    display: flex;
+    justify-content: center;
+    /* border: 2px solid red; */
+    margin-top: 2%;
+}
+.taskShowcaseContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    /* border: 2px solid green; */
+}
+h2{
+    text-align: center;
+}
+.utl-list{
+    /* border: 2px solid orangered; */
+    width: 29%;
+    padding: 1%;
+    background: #f0f0f0;
+    border-radius: 5px;
+}
+.utl-card1{
+    /* border: 2px solid green; */
+    background:powderblue;
+    cursor: pointer;
+    justify-content: center;
+    padding: 0px;
+}
+.utl-card2{
+    /* border: 2px solid green; */
+    background:pink;
+    cursor: pointer;
+    justify-content: center;
+    padding: 0px;
+}
+.utl-card3{
+    /* border: 2px solid green; */
+    background:turquoise;
+    cursor: pointer;
+    justify-content: center;
+    padding: 0px;
+}
+.utl-btn{
+    width: 100%;
+    padding: 0px 0px;
+    justify-content: center;
+    /* border: 2px solid orangered; */
+    white-space: normal;
+    margin: 2% 0%;
+    transition: all 0.1s;
+}
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+mat-card-header{
+    justify-content: center;
+    /* background: #f7786f; */
+}

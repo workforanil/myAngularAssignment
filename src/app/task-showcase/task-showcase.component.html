@@ -1,0 +1,54 @@
+<div class="taskShowcase">
+    <div class="taskShowcaseContainer">
+        <div class="todoList utl-list" cdkDropList #todosList="cdkDropList" [cdkDropListData]="todoList"
+            [cdkDropListConnectedTo]="[donesList, processsList]" (cdkDropListDropped)="onDrag($event)">
+            <h2>New</h2>
+            <button mat-button [matMenuTriggerFor]="menu" #menuTrigger [matMenuTriggerData]="{id : todo}" class="utl-btn" *ngFor="let todo of todoList" cdkDrag>
+                <mat-card class="utl-card1" [ngStyle]="{'backgroundColor': todo.priority==1 ? '#d14242' : (todo.priority==2 ? '#9ccc65' : 'powderblue')}">
+                <mat-card-header>
+                    <mat-card-title>{{todo.taskTitle}}</mat-card-title>
+                    <mat-card-subtitle>{{todo.taskDescription}}</mat-card-subtitle>
+                </mat-card-header>
+            </mat-card>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="todoEditDialog(todo)" >Edit</button>
+                <button mat-menu-item (click)="todoDeleteDialog(todo)" id="1">Delete</button>
+            </mat-menu>
+            </button>
+            
+        </div>
+
+        <div class="processList utl-list" cdkDropList #processsList="cdkDropList" [cdkDropListData]="processList"
+            [cdkDropListConnectedTo]="[todosList, donesList]" (cdkDropListDropped)="onDrag($event)">
+            <h2>In Process</h2>
+            <button mat-button [matMenuTriggerFor]="menu" #menuTrigger class="utl-btn" *ngFor="let process of processList" cdkDrag>
+                <mat-card class="utl-card2">
+                    <mat-card-header>
+                        <mat-card-title>{{process.taskTitle}}</mat-card-title>
+                        <mat-card-subtitle>{{process.taskDescription}}</mat-card-subtitle>
+                    </mat-card-header>
+                </mat-card>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="processEditDialog(process)">Edit</button>
+                    <button mat-menu-item (click)="processDeleteDialog(process)">Delete</button>
+                </mat-menu>
+            </button>
+        </div>
+
+        <div class="completeList utl-list" cdkDropList #donesList="cdkDropList" [cdkDropListData]="doneList"
+            [cdkDropListConnectedTo]="[todosList, processsList]" (cdkDropListDropped)="onDrag($event)">
+            <h2>Completed</h2>
+            <button mat-button [matMenuTriggerFor]="menu3" #menuTrigger class="utl-btn" *ngFor="let done of doneList">
+                <mat-card class="utl-card3">
+                    <mat-card-header>
+                        <mat-card-title>{{done.taskTitle}}</mat-card-title>
+                        <mat-card-subtitle>{{done.taskDescription}}</mat-card-subtitle>
+                    </mat-card-header>
+                </mat-card>
+                <mat-menu #menu3="matMenu">
+                    <button mat-menu-item (click)="doneDeleteDialog(done)">Delete</button>
+                </mat-menu>
+            </button>
+        </div>
+    </div>
+</div>
